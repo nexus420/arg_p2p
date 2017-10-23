@@ -4,6 +4,9 @@
   "private": true,
   "license": "MIT",
   "main": "index.js",
+  "engines": {
+    "node": "^8.7.0"
+  },
   "scripts": {
     "start": "webpack-dev-server",
     "client:dev": "webpack-dashboard -t 'Marvin' -- webpack-dev-server",
