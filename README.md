@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/aragon/aragon.svg?branch=react)](https://travis-ci.org/aragon/aragon)
 [![standardjs](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
+[![GPLv3](https://img.shields.io/github/license/aragon/aragon.svg?branch=react)](https://github.com/aragon/aragon/blob/react/LICENSE)
 [![Aragon Chat](https://img.shields.io/badge/discuss-aragon.chat-00d3e3.svg)](https://aragon.chat)
 
 #### 📝 Please submit support related issues in our centralized [issue tracker](http://github.com/aragon/issues/issues).
