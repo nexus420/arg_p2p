@@ -3,7 +3,7 @@
   "description": "Aragon DApp",
   "version": "0.5.0-alpha.1",
   "private": true,
-  "license": "MIT",
+  "license": "GPLv3",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/aragon/aragon.git"
