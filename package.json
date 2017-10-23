@@ -4,6 +4,22 @@
   "version": "0.5.0-alpha.1",
   "private": true,
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aragon/aragon.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aragon/aragon/issues"
+  },
+  "homepage": "https://github.com/aragon/aragon#readme",
+  "keywords": [
+    "aragon",
+    "ethereum",
+    "dapp",
+    "blockchain",
+    "startups"
+  ],
+  "author": "Harsh Vakharia <harshjv@gmail.com> (https://harshjv.github.io)",
   "main": "index.js",
   "engines": {
     "node": "^8.7.0"
@@ -82,21 +98,6 @@
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/workco/marvin.git"
-  },
-  "keywords": [
-    "react",
-    "redux",
-    "webpack2",
-    "boilerplate"
-  ],
-  "author": "Stanko",
-  "bugs": {
-    "url": "https://github.com/workco/marvin/issues"
-  },
-  "homepage": "https://github.com/workco/marvin#readme",
   "prepush": [
     "npm run prepush --silent"
   ]
