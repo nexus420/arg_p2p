@@ -11,11 +11,11 @@
     "client:build": "npm run clean && cross-env NODE_ENV=\"production\" webpack",
     "client:preview": "npm run clean && cross-env NODE_ENV=\"production\" webpack-dev-server",
     "clean": "rm -rf ./build",
-    "lint-hook": "eslint ./app/js ./webpack ./*.js -f table --ext .js --ext .jsx",
-    "lint": "npm run lint-hook --silent || true",
+    "prepush": "eslint ./app/js ./webpack ./*.js -f table --ext .js --ext .jsx",
+    "lint": "npm run prepush --silent || true",
     "hook-install": "prepush install",
     "hook-remove": "prepush remove",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -95,6 +95,6 @@
   },
   "homepage": "https://github.com/workco/marvin#readme",
   "prepush": [
-    "npm run lint-hook --silent"
+    "npm run prepush --silent"
   ]
 }
