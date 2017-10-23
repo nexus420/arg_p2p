@@ -1,6 +1,7 @@
 # Aragon ÐApp <img align="right" src="https://github.com/aragonone/issues/blob/master/logo.png" height="80px" />
 
 [![Build Status](https://travis-ci.org/aragon/aragon.svg?branch=master)](https://travis-ci.org/aragon/aragon)
+[![standardjs](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
 [![Aragon Chat](https://img.shields.io/badge/discuss-aragon.chat-00d3e3.svg)](https://aragon.chat)
 
 #### 📝 Please submit support related issues in our centralized [issue tracker](http://github.com/aragon/issues/issues).
