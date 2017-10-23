@@ -1,0 +1,12 @@
+extends:
+  - eslint-config-standard
+  - eslint-config-standard-react
+
+plugins:
+  - eslint-plugin-flowtype
+
+parser:
+  babel-eslint
+
+env:
+  browser: true
