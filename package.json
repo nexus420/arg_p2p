@@ -80,9 +80,11 @@
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
+    "@aragon/node-aragon": "^1.1.0",
     "babel-polyfill": "^6.23.0",
     "bootstrap": "^4.0.0-beta.2",
     "es6-promise": "^4.1.1",
+    "ethereumjs-util": "^5.1.2",
     "file-loader": "^1.1.5",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
@@ -94,8 +96,12 @@
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
+    "react-transition-group": "^2.2.1",
+    "reactstrap": "^5.0.0-alpha.3",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "web3": "^1.0.0-beta.24",
+    "web3-provider-engine": "^13.3.3"
   },
   "prepush": [
     "npm run prepush --silent"

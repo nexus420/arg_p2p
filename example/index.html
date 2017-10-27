@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+
+    <title>Aragon</title>
+  </head>
+  <body>
+    <h1>test dapp</h1>
+
+    <button id="tx">sign a messsage: dummy data</button>
+
+    <p id="result">...</p>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <!-- postmessage util will be replaced by node-aragon -->
+    <script>
+    (function (root, factory) {
+      if (typeof define === 'function' && define.amd) {
+        define([], factory)
+      } else if (typeof module === 'object' && module.exports) {
+        module.exports = factory()
+      } else {
+        root.SimplePostMessage = factory()
+      }
+    }(this, function () {
+      return function SimplePostMessage (target, targetOrigin, receiveCallBack) {
+        var receive
+
+        if (!(this instanceof SimplePostMessage)) {
+          return new SimplePostMessage(target, targetOrigin, receiveCallBack)
+        }
+
+        if (!target || !targetOrigin) throw new Error('Params target and targetOrigin are required!')
+
+        this.send = function (message, transfer) {
+          target.postMessage(message, targetOrigin, transfer)
+        }
+
+        this.removeListener = function () {
+          if (receive) window.removeEventListener('message', receive)
+        }
+
+        if (receiveCallBack) {
+          receive = function (event) {
+            receiveCallBack(event.data, event.source)
+          }
+          window.addEventListener('message', receive)
+        }
+      }
+    }))
+    </script>
+
+    <script>
+    const toParent = new SimplePostMessage(window.parent.window, '*', (data) => {
+      console.log('received')
+
+      if (data.type === 'result' && data.timestamp) {
+        $('#result').html(data.data)
+      }
+    })
+
+    setTimeout(() => {
+      console.log('ready sending...')
+      toParent.send({
+        type: 'ready',
+        timestamp: new Date()
+      })
+    }, 2000)
+
+    $('#tx').click(function () {
+      console.log('sending test tx')
+
+      toParent.send({
+        gasPrice: "20000000000",
+        gas: "21000",
+        to: '0x3535353535353535353535353535353535353535',
+        value: "1000000000000000000",
+        data: "",
+        type: 'tx',
+        method: 'eth_sendTransaction',
+        data: 'dummy data',
+        from: null,
+        timestamp: new Date()
+      })
+    })
+    </script>
+  </body>
+</html>

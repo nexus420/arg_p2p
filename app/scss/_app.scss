@@ -9,11 +9,19 @@ html, body {
 }
 
 body {
-  background-color: #f9fcfd;
+  background-color: #f9fcfd!important;
 }
 
 .full-height {
   height: 100%;
+
+  &.full-height-bottom-content-space {
+    padding-bottom: 30px;
+  }
+
+  &.full-height-with-bottom-bar {
+    padding-bottom: 118px;
+  }
 }
 
 .navbar {
@@ -32,7 +40,6 @@ body {
   }
 }
 
-
 .left-panel {
   box-shadow: 1px 0 15px 0 #e8e8e8;
   background-color: #fff;
@@ -45,10 +52,33 @@ body {
   }
 
   .navbar {
-    margin-bottom: 23px;
+    &:not(.bottom-bar) {
+      margin-bottom: 23px;
+    }
   }
 }
 
+.bottom-bar {
+  height: 54px;
+  position: absolute!important;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -1px 0 0 #e8e8e8, inset 15px 0 15px -15px #e5e5e5;
+  padding-left: 30px;
+  justify-content: flex-start!important;
+
+  img + span {
+    margin-left: 10px;
+  }
+
+  .navbar-text {
+    span {
+      &:not(:first-child) {
+        margin-left: 40px;
+      }
+    }
+  }
+}
 
 .right-panel {
   padding-left: 30px;
@@ -57,37 +87,50 @@ body {
 
   .app-navbar {
     box-shadow: 0 1px 0 0 #e8e8e8, inset 15px 0 15px -15px #e5e5e5;
-    margin-left: -30px;
     padding-left: 30px;
   }
 
-  .bottom-bar {
-    height: 54px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -1px 0 0 #e8e8e8, inset 15px 0 15px -15px #e5e5e5;
-    margin-left: -30px;
-    padding-left: 30px;
-
-    .navbar-text {
-      span {
-        &:not(:first-child) {
-          margin-left: 40px;
-        }
-      }
-    }
-  }
+  // .bottom-bar {
+  //   height: 54px;
+  //   position: fixed;
+  //   bottom: 0;
+  //   width: 100%;
+  //   box-shadow: 0 -1px 0 0 #e8e8e8, inset 15px 0 15px -15px #e5e5e5;
+  //   // margin-left: 0;
+  //   padding-left: 30px;
+  //
+  //   .navbar-text {
+  //     span {
+  //       &:not(:first-child) {
+  //         margin-left: 40px;
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 .scrollable {
   overflow-y: auto;
 }
 
+.bottom-space {
+  padding-bottom: 30px;
+}
+
+.row-with-bottom-bar {
+  padding-bottom: 54px;
+}
+
+.row-navbar {
+  margin-top: -64px;
+  padding-top: 64px;
+}
+
 .app-panel {
   padding-top: 40px;
-  padding-right: 30px;
-  padding-bottom: 154px;
+  padding-right: 30px!important;
+  // padding-bottom: 100px;
+  padding-left: 30px!important;
 
   > .row {
     margin-top: 30px;
@@ -111,7 +154,10 @@ body {
   font-size: 0.75rem;
   text-transform: uppercase;
   padding-bottom: 5px;
-  border-bottom: 1px solid #d1d1d1;
+
+  &.bordered {
+    border-bottom: 1px solid #d1d1d1;
+  }
 }
 
 .card {
@@ -173,4 +219,38 @@ body {
       background: #fff;
     }
   }
+}
+
+.app-list {
+  margin-left: -15px;
+  margin-right: -15px;
+
+  .nav-item {
+    border-left: 4px solid transparent;
+
+    &.active {
+      border-left-color: #1dd9d5;
+    }
+  }
+
+  .nav-link {
+    padding-left: 26px;
+  }
+}
+
+
+.nav-item {
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+
+  &.active {
+    font-weight: bold;
+  }
+}
+
+.app-browser {
+  border: none;
+  margin-top: -64px;
+  padding-top: 64px;
 }

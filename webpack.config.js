@@ -2,14 +2,15 @@ const webpack = require('webpack')
 const path = require('path')
 
 const paths = require('./webpack/paths')
-const outputFiles = require('./webpack/config').outputFiles
-const rules = require('./webpack/config').rules
-const plugins = require('./webpack/config').plugins
-const resolve = require('./webpack/config').resolve
-const IS_PRODUCTION = require('./webpack/config').IS_PRODUCTION
-const IS_DEVELOPMENT = require('./webpack/config').IS_DEVELOPMENT
-
-const devServer = require('./webpack/dev-server').devServer
+const { devServer } = require('./webpack/dev-server')
+const {
+  outputFiles,
+  rules,
+  plugins,
+  resolve,
+  IS_PRODUCTION,
+  IS_DEVELOPMENT
+} = require('./webpack/config')
 
 const DashboardPlugin = require('webpack-dashboard/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
