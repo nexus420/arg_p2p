@@ -19,7 +19,11 @@
     "blockchain",
     "startups"
   ],
-  "author": "Harsh Vakharia <harshjv@gmail.com> (https://harshjv.github.io)",
+  "author": "Aragon Institution MTU <contact@aragon.one>",
+  "contributors": [
+    "Jorge Izquierdo <jorge@aragon.one>",
+    "Harsh Vakharia <harsh@aragon.one>"
+  ],
   "main": "index.js",
   "engines": {
     "node": "^8.7.0"
