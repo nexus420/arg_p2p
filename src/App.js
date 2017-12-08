@@ -1,8 +1,17 @@
 import React from 'react'
 import createHistory from 'history/createHashHistory'
-import { AragonApp } from '@aragon/ui'
+import { styled, AragonApp } from '@aragon/ui'
+import { Settings } from './apps'
 import MenuPanel from './components/MenuPanel/MenuPanel'
-import { apps, notifications } from './demo-state'
+import { apps, appStates, notifications } from './demo-state'
+
+const AppContent = styled.div`
+  position: fixed;
+  left: 220px;
+  right: 0;
+  height: 100vh;
+  overflow-x: auto;
+`
 
 class App extends React.Component {
   state = {
@@ -40,6 +49,11 @@ class App extends React.Component {
   closeSidePanel = () => {
     this.setState({ sidePanelOpened: false })
   }
+  renderAppFrontend(app, instance) {
+    if (app === 'settings') {
+      return <Settings {...appStates[app]} />
+    }
+  }
   render() {
     const { notifications } = this.state
     const { app, instance } = this.appInstance()
@@ -52,6 +66,7 @@ class App extends React.Component {
           notifications={notifications}
           onPathChange={this.handlePathChange}
         />
+        <AppContent>{this.renderAppFrontend(app, instance)}</AppContent>
       </AragonApp>
     )
   }

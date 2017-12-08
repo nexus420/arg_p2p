@@ -75,3 +75,13 @@ export const apps = [
   { id: 'permissions', name: 'Permissions' },
   { id: 'identity', name: 'Identity' },
 ]
+
+export const appStates = {
+  settings: {
+    network: 'Kovan',
+    networkName: 'Kovan testnet',
+    organizationAddress: '0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be',
+    currencies: ['USD', 'EUR', 'GBP', 'CAD', 'RMB', 'JPY'],
+    selectedCurrency: 'EUR',
+  },
+}
