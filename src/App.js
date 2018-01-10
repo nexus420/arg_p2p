@@ -1,16 +1,25 @@
 import React from 'react'
 import createHistory from 'history/createHashHistory'
 import { styled, AragonApp } from '@aragon/ui'
+import { Settings } from './apps'
 import AppIFrame from './components/App/AppIFrame'
 import Home from './components/Home/Home'
 import MenuPanel from './components/MenuPanel/MenuPanel'
-import { apps, notifications, tokens, prices, homeActions } from './demo-state'
+import {
+  apps,
+  appStates,
+  homeActions,
+  notifications,
+  prices,
+  tokens,
+} from './demo-state'
 
 class App extends React.Component {
   state = {
+    appStates,
+    notifications,
     path: '',
     sidePanelOpened: false,
-    notifications,
   }
   constructor() {
     super()
@@ -36,6 +45,13 @@ class App extends React.Component {
   getAppSrc(appId) {
     const app = apps.find(app => app.id === appId)
     return (app && app.src) || ''
+  }
+  handleAppStateChange = (appId, updatedState) => {
+    // TODO: This should instead use node-aragon caching after integration
+    const appStates = Object.assign(this.state.appStates, {
+      [appId]: Object.assign(this.state.appStates[appId], updatedState),
+    })
+    this.setState({ appStates })
   }
   handleNavigation = location => {
     this.setState({ path: location.pathname })
@@ -68,7 +84,7 @@ class App extends React.Component {
     this.setState({ sidePanelOpened: false })
   }
   render() {
-    const { notifications } = this.state
+    const { appStates, notifications } = this.state
     const { appId, instanceId } = this.appInstance()
     return (
       <AragonApp publicUrl="/aragon-ui/">
@@ -87,6 +103,12 @@ class App extends React.Component {
                 prices={prices}
                 actions={homeActions}
                 onOpenApp={this.handleOpenApp}
+              />
+            )}
+            {appId === 'settings' && (
+              <Settings
+                onAppStateChange={this.handleAppStateChange}
+                {...appStates[appId]}
               />
             )}
             <AppIFrame src={this.getAppSrc(appId)} />
